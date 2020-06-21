@@ -9,7 +9,10 @@ namespace DatingApp.API.Data
         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, 
         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
-        public DataContext(DbContextOptions<DataContext>  options) : base (options) {}
+        public DataContext(DbContextOptions<DataContext>  options) : base (options) 
+        {
+            Database.EnsureCreated();
+        }
 
         public DbSet<Value> Values { get; set; }
         public DbSet<Photo> Photos { get; set; }
